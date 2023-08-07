@@ -1,0 +1,36 @@
+@import '@/src/styles/index.module.scss';
+
+.c-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 0.8rem;
+
+  .c-input__label {
+    &--error {
+      color: var(--warning);
+    }
+
+    &--hidden {
+      @include visually-hidden;
+    }
+  }
+
+  .c-input {
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--border);
+    background-color: var(--input-background);
+    color: var(--text-base);
+
+    &--error {
+      border-color: var(--warning);
+      border-width: 0.2rem;
+    }
+  }
+
+  .c-input__error-message {
+    color: var(--warning);
+    font-size: 1.4rem;
+  }
+}

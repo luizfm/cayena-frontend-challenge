@@ -1,0 +1,24 @@
+@import '@/src/styles/index.module.scss';
+
+.c-main-layout__header {
+  @include max-width;
+  padding-top: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9.5rem;
+
+
+}
+
+.c-main-layout__main-content {
+  position: relative;
+  @include max-width;
+}
+
+.c-main-layout__buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.6rem;
+}

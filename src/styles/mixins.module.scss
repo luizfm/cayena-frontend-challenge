@@ -1,0 +1,33 @@
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+      #{$key}: $value;
+  }
+}
+
+@mixin visually-hidden {
+  border: 0;
+	clip: rect(0 0 0 0); 
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap; 
+	width: 1px;
+}
+
+@mixin box-shadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@mixin max-width {
+  max-width: 128rem;
+  margin: 0 auto;
+}
+
+@mixin supplier-sections-grid {
+  display: grid;
+  grid-template: auto auto / 25rem 1fr 20rem 0.1rem 0.1rem 15rem;
+  gap: 2.4rem 3.2rem;
+}

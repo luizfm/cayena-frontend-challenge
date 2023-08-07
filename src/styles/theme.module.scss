@@ -1,0 +1,48 @@
+@import './variables.module.scss';
+
+$theme-map-light: (
+  $--primary-100: #f05366,
+  $--primary-200: #f56a76,
+  $--primary-300: #f97e85,
+  $--secondary-100: #2b276a,
+  $--secondary-200: #433c7a,
+  $--secondary-300: #5a518a,
+
+  $--warning: #cc3300,
+
+  $--text-base: #121f3b,
+  $--text-base-inverse: #fafafa,
+  $--input-background: #fafafa,
+
+  $--border: #282828,
+
+  $--disabled: #bfbfbf,
+
+  $--background: #f97e85,
+
+  $--white: #fff
+);
+
+// Override the default light theme
+$theme-map-dark: (
+  $--primary-100: #fc9296,
+  $--primary-200: #ffa5a7,
+  $--primary-300: #ffb7b8,
+  $--secondary-100: #71689a,
+  $--secondary-200: #887fab,
+  $--secondary-300: #9f98bb,
+
+  $--warning: #cc3300,
+
+  $--text-base: #d4d4d9,
+  $--text-base-inverse: #121f3b,
+  $--input-background: #303234,
+
+  $--border: #fafafa,
+
+  $--disabled: #bfbfbf,
+
+  $--background: #282828,
+
+  $--white: #fff
+);

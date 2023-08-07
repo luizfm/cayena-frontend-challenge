@@ -1,0 +1,33 @@
+@import '@/src/styles/index.module.scss';
+
+.c-login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--primary-300);
+
+  &__form-wrapper {
+    width: 100%;
+    max-width: 48rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3.2rem;
+    padding: 3.2rem;
+    border-radius: 0.8rem;
+    @include box-shadow;
+    background-color: var(--white);
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3.2rem;
+  }
+}

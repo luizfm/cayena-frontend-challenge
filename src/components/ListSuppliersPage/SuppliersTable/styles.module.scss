@@ -1,0 +1,32 @@
+@import '@/src/styles/index.module.scss';
+
+.c-suppliers-table {
+  width: 100%;
+  border-radius: 0.8rem;
+  border-collapse: collapse;
+  color: var(--text-base-inverse);
+
+  &__table-row {
+    background-color: var(--secondary-300);
+
+    &--even {
+      background-color: var(--secondary-200);
+    }
+  }
+
+  &__table-cell {
+    text-align: center;
+    padding: 0.8rem;
+    border: 0.1rem solid var(--white);
+  }
+
+  &__table-header-cell {
+    padding: 2.1rem;
+    border: 0.1rem solid var(--white);
+    background-color: var(--secondary-100);
+  }
+
+  &__edit-button {
+    margin: 0 auto;
+  }
+}

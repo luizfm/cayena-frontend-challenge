@@ -1,0 +1,30 @@
+@import './theme.module.scss';
+@import './mixins.module.scss';
+
+:root.light {
+  @include spread-map($theme-map-light);
+}
+:root.dark {
+  @include spread-map($theme-map-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font: 400 1.6rem 'Ubuntu', sans-serif;
+  color: var(--text-base);
+  background-color: var(--background);
+}
+
+button {
+  cursor: pointer;
+}
+

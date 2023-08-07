@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+      "module": "commonjs",
+      "target": "es2020",
+      "allowJs": true,
+      "checkJs": false,
+      "jsx": "react-jsx",
+      "outDir": "./build",
+      "rootDir": "./src",
+      "removeComments": true,
+      "pretty": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "paths": {
+        "@/src/*": ["./src/*"],
+        "@/styles/*": ["./src/styles/*"]
+      }
+  },
+  "include": [
+      "./src/**/*"
+  ],
+  "exclude": [
+      "node_modules"
+  ]
+}

@@ -1,0 +1,32 @@
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.8rem;
+  border: 0.1rem solid;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  transition: filter 0.3s linear;
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+
+  // Button Variants
+  &--primary {
+    background-color: var(--primary-100);
+    color: var(--text-base-inverse);
+  }
+
+  &--secondary {
+    background-color: var(--secondary-100);
+    color: var(--text-base-inverse);
+  }
+
+  &:hover:not(:disabled) {
+    filter: brightness(0.8);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+    cursor: not-allowed;
+  }
+}
