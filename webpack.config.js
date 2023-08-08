@@ -6,8 +6,6 @@ const dotenv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env'),
 })
 
-console.log(dotenv)
-
 const envPlugin = new webpack.DefinePlugin({
   'process.env': JSON.stringify(dotenv.parsed),
 })
