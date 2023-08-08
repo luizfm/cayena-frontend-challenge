@@ -5,6 +5,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
+console.log({ isDevelopment, dotenv })
+
 const envPlugin = new webpack.DefinePlugin({
   'process.env': JSON.stringify(dotenv.parsed),
   'process.env.NODE_ENV': JSON.stringify(
