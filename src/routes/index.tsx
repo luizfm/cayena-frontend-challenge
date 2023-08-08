@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
 import {
   LOGIN_PATH_DETAILS,
@@ -15,6 +15,7 @@ export const routes = createBrowserRouter([
     path: '/',
     element: <MainLayout />,
     children: [
+      { index: true, element: <Navigate to="/login" replace /> },
       {
         path: SUPPLIERS_PATH_DETAILS.path,
         element: <ListSuppliersPage />,

@@ -2,16 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
-const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
-const isDevelopment = process.env.NODE_ENV !== 'production'
-
-console.log({ isDevelopment, dotenv })
+const dotenv = require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env'),
+})
 
 const envPlugin = new webpack.DefinePlugin({
   'process.env': JSON.stringify(dotenv.parsed),
-  'process.env.NODE_ENV': JSON.stringify(
-    isDevelopment ? 'development' : 'production',
-  ),
 })
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -21,7 +17,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
   entry: './src/main.tsx',
-  mode: isDevelopment ? 'development' : 'production',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
