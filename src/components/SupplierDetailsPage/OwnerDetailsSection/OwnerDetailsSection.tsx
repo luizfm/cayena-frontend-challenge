@@ -8,7 +8,11 @@ import { MaskedInput } from '@/src/components/MaskedInput'
 import styles from './styles.module.scss'
 
 function OwnerDetailsSection() {
-  const { register, control } = useFormContext<FormData>()
+  const {
+    register,
+    control,
+    formState: { errors },
+  } = useFormContext<FormData>()
 
   return (
     <section className={styles['c-owner-details-section']}>
@@ -29,11 +33,13 @@ function OwnerDetailsSection() {
       <Controller
         control={control}
         name="ownerPhoneNumber"
-        render={({ field }) => (
+        rules={REQUIRED_FIELD}
+        render={({ field: { ref, ...restFields } }) => (
           <MaskedInput
             label="Phone Number"
             mask="99 (99) 99999-9999"
-            {...field}
+            {...restFields}
+            error={errors.ownerPhoneNumber?.message}
             placeholder="55 (96) 8014-5614"
             className={styles['c-owner-details-section__input-phone-number']}
           />

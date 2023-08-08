@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from 'react-query'
-import { getTokenApi } from '../api/fetcher'
 import { useCookies } from 'react-cookie'
 import { AxiosError } from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { tokenApi } from '../api/fetcher'
 
 type ErrorDataType = {
   error: string
@@ -15,7 +15,7 @@ export function useLogin() {
   const [, setCookie] = useCookies(['user'])
   const queryClient = useQueryClient()
   const loginFunction = async (formData: FormData) => {
-    const result = await getTokenApi.post('/oauth/token', formData)
+    const result = await tokenApi.post('/oauth/token', formData)
     return result.data
   }
 

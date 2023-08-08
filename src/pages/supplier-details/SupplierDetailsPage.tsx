@@ -31,7 +31,7 @@ export type FormData = {
 
 function SupplierDetailsPage() {
   const { supplierId } = useParams()
-  const { data, isLoading } = useGetSupplierById(supplierId)
+  const { data, isLoading, isError } = useGetSupplierById(supplierId)
   const { mutate } = useUpdateSupplier(supplierId)
 
   const methods = useForm<FormData>({
@@ -68,12 +68,11 @@ function SupplierDetailsPage() {
 
   return (
     <div className={styles['c-supplier-details-page']}>
-      {isLoading && (
+      {isLoading || isError ? (
         <div className={styles['c-supplier-details-page__loading-wrapper']}>
           <Spinner />
         </div>
-      )}
-      {!isLoading && (
+      ) : (
         <FormProvider {...methods}>
           <form onSubmit={onSubmit}>
             <SupplierDetailsSection />

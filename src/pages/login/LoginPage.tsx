@@ -7,7 +7,6 @@ import { useForm } from 'react-hook-form'
 import { REQUIRED_FIELD } from '@/src/constants/form'
 import { useAuth } from '@/src/hooks/useAuth'
 import { Navigate } from 'react-router-dom'
-import { getToken } from '@/src/utils/token'
 
 type FormData = {
   username: string
@@ -39,8 +38,6 @@ function LoginPage() {
 
     mutate(form)
   })
-
-  getToken()
 
   if (user) {
     return <Navigate to="/suppliers" />

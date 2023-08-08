@@ -1,20 +1,28 @@
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import { api } from '../api/fetcher'
 import { Suppliers } from '../types/suppliers'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 function useGetSuppliers() {
-  const getSuppliers = async () => {
-    try {
-      const suppliers = await api.get<Suppliers[]>('/suppliers')
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
-      return suppliers.data
-    } catch (error) {
-      console.log(error)
-      return []
-    }
+  const getSuppliers = async () => {
+    const suppliers = await api.get<Suppliers[]>('/suppliers')
+
+    return suppliers.data
   }
 
-  return useQuery<Suppliers[]>(['suppliers'], getSuppliers)
+  return useQuery<Suppliers[]>(['suppliers'], getSuppliers, {
+    onError: () => {
+      toast.error(
+        'Something went wrong while authenticating. Please, login again',
+      )
+      queryClient.clear()
+      navigate('/login')
+    },
+  })
 }
 
 export default useGetSuppliers

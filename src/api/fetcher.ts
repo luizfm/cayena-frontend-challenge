@@ -8,7 +8,7 @@ export const api = axios.create({
   baseURL: env.API_URL,
 })
 
-export const getTokenApi = axios.create({
+export const tokenApi = axios.create({
   baseURL: env.API_URL,
   auth: {
     username: env.CAYENA_USER_NAME,
@@ -22,7 +22,7 @@ const getUpdatdTokens = async (refreshToken: string) => {
   formData.append('grant_type', 'refresh_token')
   formData.append('refresh_token', refreshToken)
 
-  const response = await getTokenApi.post<User>('/oauth/token', formData)
+  const response = await tokenApi.post<User>('/oauth/token', formData)
 
   const user = response.data
 
@@ -31,7 +31,6 @@ const getUpdatdTokens = async (refreshToken: string) => {
 
 api.interceptors.request.use((request) => {
   const token = getToken()
-  console.log(token)
 
   if (token) {
     request.headers.Authorization = `Bearer ${token}`
@@ -47,22 +46,45 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config
 
-    if (error?.response?.status === 401) {
+    if (error?.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true
       const refreshToken = getRefreshToken()
-      console.log({ refreshToken })
 
       if (!refreshToken) {
-        return (window.location.href = '/login')
+        return Promise.reject(error)
       }
 
-      const response = await getUpdatdTokens(refreshToken)
+      try {
+        const response = await getUpdatdTokens(refreshToken)
 
-      const cookies = new Cookies()
-      cookies.set('user', response)
+        const cookies = new Cookies()
+        cookies.set('user', response, {
+          path: '/',
+        })
 
-      return api(originalRequest)
+        return api(originalRequest)
+      } catch (error) {
+        return Promise.reject(error)
+      }
     }
 
     return Promise.reject(error)
+  },
+)
+
+tokenApi.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  async (error) => {
+    if (error?.response.status === 401) {
+      const cookies = new Cookies()
+
+      await cookies.remove('user', {
+        path: '/',
+      })
+
+      return Promise.reject(error)
+    }
   },
 )

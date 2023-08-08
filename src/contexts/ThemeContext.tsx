@@ -20,9 +20,8 @@ function ThemeContextProvider({ children }: ThemeContextProviderProps) {
 
       const newTheme = prevValue === 'light' ? 'dark' : 'light'
 
-      console.log(prevValue, newTheme)
       htmlTag?.classList.remove(prevValue)
-      htmlTag?.classList.add(theme)
+      htmlTag?.classList.add(newTheme)
 
       return newTheme
     })

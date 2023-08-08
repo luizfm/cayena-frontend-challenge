@@ -21,8 +21,8 @@ const MaskedInput = forwardRef<HTMLInputElement, InputProps>(
       <div className={classNames(styles['c-masked-input__wrapper'], className)}>
         <label
           className={classNames(styles['c-masked-input__label'], {
-            [styles['c-input__label--error']]: !!error,
-            [styles['c-input__label--hidden']]: hiddenLabel,
+            [styles['c-masked-input__label--error']]: !!error,
+            [styles['c-masked-input__label--hidden']]: hiddenLabel,
           })}
         >
           {label}
