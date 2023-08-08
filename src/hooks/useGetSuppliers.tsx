@@ -17,7 +17,7 @@ function useGetSuppliers() {
   return useQuery<Suppliers[]>(['suppliers'], getSuppliers, {
     onError: () => {
       toast.error(
-        'Something went wrong while authenticating. Please, login again',
+        'Something went wrong while authenticating. Please, log in again',
       )
       queryClient.clear()
       navigate('/login')

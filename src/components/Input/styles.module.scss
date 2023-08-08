@@ -3,8 +3,12 @@
 .c-input__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   row-gap: 0.8rem;
+  height: 8.5rem;
+
+  &--hidden {
+    height: 6rem;
+  }
 
   .c-input__label {
     &--error {

@@ -5,6 +5,7 @@
   border-radius: 0.8rem;
   border-collapse: collapse;
   color: var(--text-base-inverse);
+  @include box-shadow;
 
   &__table-row {
     background-color: var(--secondary-300);

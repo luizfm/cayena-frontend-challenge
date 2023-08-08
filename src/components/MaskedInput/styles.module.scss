@@ -3,8 +3,8 @@
 .c-masked-input__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   row-gap: 0.8rem;
+  height: 8.5rem;
 
   .c-masked-input__label {
     &--error {
@@ -13,6 +13,7 @@
 
     &--hidden {
       @include visually-hidden;
+      height: 6rem;
     }
   }
 

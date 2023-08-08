@@ -19,7 +19,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     return (
-      <div className={classNames(styles['c-input__wrapper'], className)}>
+      <div
+        className={classNames(
+          styles['c-input__wrapper'],
+          { [styles['c-input__wrapper--hidden']]: hiddenLabel },
+          className,
+        )}
+      >
         <label
           className={classNames(styles['c-input__label'], {
             [styles['c-input__label--error']]: !!error,
