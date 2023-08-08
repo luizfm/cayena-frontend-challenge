@@ -13,6 +13,7 @@ function Switch({ className, onCheckedChange }: SwitchProps) {
     <RadixSwitch.Root
       className={classNames(styles['c-switch'], className)}
       onCheckedChange={onCheckedChange}
+      title="switch theme"
     >
       <RadixSwitch.Thumb className={styles['c-switch__thumb']} />
     </RadixSwitch.Root>

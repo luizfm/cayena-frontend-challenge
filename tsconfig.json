@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-      "module": "commonjs",
+      "module": "ESNext",
       "target": "es2020",
       "allowJs": true,
       "checkJs": false,
@@ -13,8 +13,9 @@
       "strict": true,
       "moduleResolution": "node",
       "esModuleInterop": true,
+      "baseUrl": ".",
       "paths": {
-        "@/src/*": ["./src/*"],
+        "@/*": ["./src/*"],
         "@/styles/*": ["./src/styles/*"]
       }
   },

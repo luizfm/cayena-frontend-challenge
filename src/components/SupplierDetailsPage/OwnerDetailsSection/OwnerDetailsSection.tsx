@@ -1,9 +1,9 @@
 import { Controller, useFormContext } from 'react-hook-form'
 
-import { Input } from '@/src/components/Input'
-import { FormData } from '@/src/pages/supplier-details/SupplierDetailsPage'
-import { REQUIRED_FIELD } from '@/src/constants/form'
-import { MaskedInput } from '@/src/components/MaskedInput'
+import { Input } from '@/components/Input'
+import { FormData } from '@/pages/supplier-details/SupplierDetailsPage'
+import { REQUIRED_FIELD } from '@/constants/form'
+import { MaskedInput } from '@/components/MaskedInput'
 
 import styles from './styles.module.scss'
 
@@ -40,7 +40,7 @@ function OwnerDetailsSection() {
             mask="99 (99) 99999-9999"
             {...restFields}
             error={errors.ownerPhoneNumber?.message}
-            placeholder="55 (96) 8014-5614"
+            placeholder="55 (96) 8014-5617"
             className={styles['c-owner-details-section__input-phone-number']}
           />
         )}

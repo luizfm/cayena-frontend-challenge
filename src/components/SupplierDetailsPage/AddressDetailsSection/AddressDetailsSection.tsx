@@ -1,9 +1,9 @@
 import { Controller, useFormContext } from 'react-hook-form'
 
-import { Input } from '@/src/components/Input'
-import { FormData } from '@/src/pages/supplier-details/SupplierDetailsPage'
-import { REQUIRED_FIELD } from '@/src/constants/form'
-import { MaskedInput } from '@/src/components/MaskedInput'
+import { Input } from '@/components/Input'
+import { FormData } from '@/pages/supplier-details/SupplierDetailsPage'
+import { REQUIRED_FIELD } from '@/constants/form'
+import { MaskedInput } from '@/components/MaskedInput'
 
 import styles from './styles.module.scss'
 
@@ -29,7 +29,6 @@ function AddressDetailsSection() {
         className={styles['c-address-details-section__input-number']}
         label="Number"
         placeholder="144"
-        type="number"
         {...register('number', REQUIRED_FIELD)}
         error={errors.number?.message}
       />

@@ -2,13 +2,13 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import useGetSupplierById from '@/src/hooks/useGetSupplierById'
-import { SupplierDetailsSection } from '@/src/components/SupplierDetailsPage/SupplierDetailsSection'
-import { OwnerDetailsSection } from '@/src/components/SupplierDetailsPage/OwnerDetailsSection'
-import { AddressDetailsSection } from '@/src/components/SupplierDetailsPage/AddressDetailsSection'
-import { Spinner } from '@/src/components/Spinner'
-import { Button } from '@/src/components/Button'
-import useUpdateSupplier from '@/src/hooks/useUpdateSupplier'
+import useGetSupplierById from '@/hooks/useGetSupplierById'
+import { SupplierDetailsSection } from '@/components/SupplierDetailsPage/SupplierDetailsSection'
+import { OwnerDetailsSection } from '@/components/SupplierDetailsPage/OwnerDetailsSection'
+import { AddressDetailsSection } from '@/components/SupplierDetailsPage/AddressDetailsSection'
+import { Spinner } from '@/components/Spinner'
+import { Button } from '@/components/Button'
+import useUpdateSupplier from '@/hooks/useUpdateSupplier'
 
 import styles from './styles.module.scss'
 
@@ -82,6 +82,7 @@ function SupplierDetailsPage() {
               variant="secondary"
               type="submit"
               className={styles['c-supplier-details-page__submit-button']}
+              title="update supplier"
             >
               Submit
             </Button>

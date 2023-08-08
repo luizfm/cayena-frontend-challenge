@@ -7,7 +7,9 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 const envPlugin = new webpack.DefinePlugin({
   'process.env': JSON.stringify(dotenv.parsed),
-  'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+  'process.env.NODE_ENV': JSON.stringify(
+    isDevelopment ? 'development' : 'production',
+  ),
 })
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -21,7 +23,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -37,23 +39,26 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/i,
-        use: ['style-loader', {
-          loader: "css-loader",
-          options: {
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
               modules: {
-                  localIdentName: "[local]",
-              }
-          }
-        }, 'sass-loader'],
+                localIdentName: '[local]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      ['@/src']: path.resolve(__dirname, 'src'),
-      ['@/src/styles']: path.resolve(__dirname, 'src/styles')
-    }
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
   plugins: [htmlPlugin, envPlugin].filter(Boolean),
   devServer: {

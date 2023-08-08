@@ -14,6 +14,7 @@ export function useLogin() {
   const navigate = useNavigate()
   const [, setCookie] = useCookies(['user'])
   const queryClient = useQueryClient()
+
   const loginFunction = async (formData: FormData) => {
     const result = await tokenApi.post('/oauth/token', formData)
     return result.data

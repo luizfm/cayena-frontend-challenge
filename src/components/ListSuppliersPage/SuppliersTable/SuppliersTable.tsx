@@ -1,5 +1,4 @@
-import { Button } from '@/src/components/Button'
-
+import { Button } from '@/components/Button'
 import styles from './styles.module.scss'
 import classNames from 'classnames'
 
@@ -54,6 +53,7 @@ function SuppliersTable({
                 to={`/suppliers/${row.id}`}
                 className={styles['c-suppliers-table__edit-button']}
                 variant="secondary"
+                title="navigate to suppliers"
               >
                 Edit
               </Button>

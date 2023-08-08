@@ -1,7 +1,7 @@
-import { SuppliersTable } from '@/src/components/ListSuppliersPage/SuppliersTable'
-import { Spinner } from '@/src/components/Spinner'
-import useGetSuppliers from '@/src/hooks/useGetSuppliers'
-import { mapSuppliers } from '@/src/utils/mapper-suppliers'
+import { SuppliersTable } from '@/components/ListSuppliersPage/SuppliersTable'
+import { Spinner } from '@/components/Spinner'
+import useGetSuppliers from '@/hooks/useGetSuppliers'
+import { mapSuppliers } from '@/utils/mapper-suppliers'
 
 import styles from './styles.module.scss'
 

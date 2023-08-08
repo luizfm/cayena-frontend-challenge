@@ -1,12 +1,12 @@
-import { ThemeContext } from '@/src/contexts/ThemeContext'
-import ProtectedRoute from '@/src/routes/ProtectedRoute/ProtectedRoute'
+import { ThemeContext } from '@/contexts/ThemeContext'
+import ProtectedRoute from '@/routes/ProtectedRoute/ProtectedRoute'
 import { useContext } from 'react'
 
 import styles from './styles.module.scss'
 import { Outlet } from 'react-router-dom'
-import usePageDetails from '@/src/hooks/usePageDetails'
-import { Switch } from '@/src/components/Switch'
-import { Button } from '@/src/components/Button'
+import usePageDetails from '@/hooks/usePageDetails'
+import { Switch } from '@/components/Switch'
+import { Button } from '@/components/Button'
 
 function MainLayout() {
   const { onThemeChange } = useContext(ThemeContext)
@@ -18,7 +18,7 @@ function MainLayout() {
         <h1 className={styles['c-main-layout__page-title']}>{pageTitle}</h1>
         <div className={styles['c-main-layout__buttons-wrapper']}>
           {backTo && (
-            <Button variant="secondary" to={backTo}>
+            <Button variant="secondary" to={backTo} title="navigate back">
               &#x2190;
             </Button>
           )}

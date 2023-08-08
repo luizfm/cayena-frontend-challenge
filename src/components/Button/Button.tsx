@@ -44,7 +44,7 @@ function Button({
         styles[`c-button--${variant}`],
         className,
       )}
-      // disabled={isLoading}
+      disabled={isLoading}
       type="button"
       {...restButtonProps}
     >

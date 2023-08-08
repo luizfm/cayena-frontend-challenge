@@ -1,9 +1,9 @@
 import { Controller, useFormContext } from 'react-hook-form'
 
-import { Input } from '@/src/components/Input'
-import { FormData } from '@/src/pages/supplier-details/SupplierDetailsPage'
-import { REQUIRED_FIELD } from '@/src/constants/form'
-import { MaskedInput } from '@/src/components/MaskedInput'
+import { Input } from '@/components/Input'
+import { FormData } from '@/pages/supplier-details/SupplierDetailsPage'
+import { REQUIRED_FIELD } from '@/constants/form'
+import { MaskedInput } from '@/components/MaskedInput'
 
 import styles from './styles.module.scss'
 

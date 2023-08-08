@@ -1,11 +1,11 @@
-import { Input } from '@/src/components/Input'
+import { Input } from '@/components/Input'
 
 import styles from './styles.module.scss'
-import { Button } from '@/src/components/Button'
-import { useLogin } from '@/src/hooks/useLogin'
+import { Button } from '@/components/Button'
+import { useLogin } from '@/hooks/useLogin'
 import { useForm } from 'react-hook-form'
-import { REQUIRED_FIELD } from '@/src/constants/form'
-import { useAuth } from '@/src/hooks/useAuth'
+import { REQUIRED_FIELD } from '@/constants/form'
+import { useAuth } from '@/hooks/useAuth'
 import { Navigate } from 'react-router-dom'
 
 type FormData = {
@@ -64,7 +64,7 @@ function LoginPage() {
             error={errors?.password?.message}
           />
 
-          <Button isLoading={isLoading} type="submit">
+          <Button isLoading={isLoading} type="submit" title="sign in">
             Sign in
           </Button>
         </form>
