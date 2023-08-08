@@ -1,48 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/suppliers/:id",
-      "destination": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "route",
-          "value": "supplier-details"
-        }
-      ]
-    },
-    {
-      "source": "/suppliers",
-      "destination": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "route",
-          "value": "list-suppliers"
-        }
-      ]
-    },
-    {
-      "source": "/login",
-      "destination": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "route",
-          "value": "login"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "route",
-          "value": "index"
-        }
-      ]
-    }
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
   ]
 }
