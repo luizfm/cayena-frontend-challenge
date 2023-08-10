@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 const dotenv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env'),
 })
@@ -10,6 +12,15 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: '/public/index.html',
   filename: './index.html',
 })
+
+const plugins = isDevelopment
+  ? [
+      htmlPlugin,
+      new Dotenv({
+        systemvars: true,
+      }),
+    ]
+  : [htmlPlugin]
 
 module.exports = {
   entry: './src/main.tsx',
@@ -53,12 +64,7 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  plugins: [
-    htmlPlugin,
-    new Dotenv({
-      systemvars: true,
-    }),
-  ].filter(Boolean),
+  plugins,
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
