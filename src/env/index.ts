@@ -8,10 +8,18 @@ const envSchema = z.object({
 })
 
 console.log({
-  variables: [process.env, process.env.NODE_ENV, process.env.API_URL],
+  variables: [
+    process.env,
+    process.env.NODE_ENV,
+    process.env.API_URL,
+    process.env.CAYENA_USER_NAME,
+    process.env.CAYENA_AUTH_TOKEN,
+  ],
 })
 
 const _env = envSchema.safeParse(process.env)
+
+console.log({ _env })
 
 if (!_env.success) {
   console.log('Something went wrong with env variables', _env.error.format())
