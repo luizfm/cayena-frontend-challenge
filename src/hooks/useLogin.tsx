@@ -17,7 +17,8 @@ export function useLogin() {
 
   const loginFunction = async (formData: FormData) => {
     const result = await tokenApi.post('/oauth/token', formData)
-    return result.data
+    console.log('aqui?123123ß')
+    return result?.data
   }
 
   return useMutation(['login'], loginFunction, {
@@ -30,6 +31,7 @@ export function useLogin() {
       navigate('/suppliers')
     },
     onError: (result: AxiosError<ErrorDataType>) => {
+      console.log({ result })
       const errorInfo = result.response?.data
       const message = errorInfo?.error_description
 

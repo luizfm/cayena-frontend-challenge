@@ -1,19 +1,9 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 const dotenv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env'),
-})
-
-const envPlugin = new webpack.DefinePlugin({
-  'process.env': JSON.stringify(dotenv.parsed),
-  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-  'process.env.API_URL': JSON.stringify(process.env.API_URL),
-  'process.env.CAYENA_USER_NAME': JSON.stringify(process.env.CAYENA_USER_NAME),
-  'process.env.CAYENA_AUTH_TOKEN': JSON.stringify(
-    process.env.CAYENA_AUTH_TOKEN,
-  ),
 })
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -63,7 +53,12 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  plugins: [htmlPlugin, envPlugin].filter(Boolean),
+  plugins: [
+    htmlPlugin,
+    new Dotenv({
+      systemvars: true,
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),

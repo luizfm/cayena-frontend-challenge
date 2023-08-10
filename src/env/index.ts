@@ -7,7 +7,14 @@ const envSchema = z.object({
   CAYENA_AUTH_TOKEN: z.string(),
 })
 
-const _env = envSchema.safeParse(process.env)
+const envVariables = {
+  NODE_ENV: process.env.NODE_ENV,
+  API_URL: process.env.API_URL,
+  CAYENA_USER_NAME: process.env.CAYENA_USER_NAME,
+  CAYENA_AUTH_TOKEN: process.env.CAYENA_AUTH_TOKEN,
+}
+
+const _env = envSchema.safeParse(envVariables)
 
 if (!_env.success) {
   console.log('Something went wrong with env variables', _env.error.format())
