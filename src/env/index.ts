@@ -16,8 +16,6 @@ const envVariables = {
 
 const _env = envSchema.safeParse(envVariables)
 
-console.log({ _env })
-
 if (!_env.success) {
   console.log('Something went wrong with env variables', _env.error.format())
   throw new Error('Invalid env variables')
