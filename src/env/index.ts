@@ -7,7 +7,9 @@ const envSchema = z.object({
   CAYENA_AUTH_TOKEN: z.string(),
 })
 
-console.log(process.env)
+console.log({
+  variables: [process.env, process.env.NODE_ENV, process.env.API_URL],
+})
 
 const _env = envSchema.safeParse(process.env)
 
