@@ -22,6 +22,7 @@ function OwnerDetailsSection() {
         className={styles['c-owner-details-section__input-name']}
         placeholder="Lady Gaga"
         {...register('ownerName', REQUIRED_FIELD)}
+        error={errors.ownerName?.message}
       />
       <Input
         label="Email"
@@ -29,6 +30,7 @@ function OwnerDetailsSection() {
         placeholder="ladygaga@bol.com.br"
         type="email"
         {...register('ownerEmail', REQUIRED_FIELD)}
+        error={errors.ownerEmail?.message}
       />
       <Controller
         control={control}
